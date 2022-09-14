@@ -43,6 +43,11 @@ output "eks_cluster_identity_oidc_issuer_arn" {
   value       = join("", aws_iam_openid_connect_provider.default.*.arn)
 }
 
+output "eks_cluster_identity_oidc_url" {
+  description = "The OIDC Identity issuer URL to associate IAM roles with a specific service account"
+  value       = join("", aws_iam_openid_connect_provider.default.url)
+}
+
 output "eks_cluster_certificate_authority_data" {
   description = "The Kubernetes cluster certificate authority data"
   value       = local.certificate_authority_data
